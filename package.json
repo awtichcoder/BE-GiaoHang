@@ -1,0 +1,8 @@
+{
+  "name": "delivery-platform-backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./start-all.ps1"
+  }
+}

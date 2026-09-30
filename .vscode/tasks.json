@@ -1,0 +1,160 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build all APIs",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "DeliveryPlatform.sln"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Run Identity",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "Services/Identity.API",
+        "--no-launch-profile",
+        "--urls",
+        "http://localhost:5001"
+      ],
+      "options": {
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Run Delivery",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "Services/Delivery.API",
+        "--no-launch-profile",
+        "--urls",
+        "http://localhost:5002"
+      ],
+      "options": {
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Run Dispatch",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "Services/Dispatch.API",
+        "--no-launch-profile",
+        "--urls",
+        "http://localhost:5003"
+      ],
+      "options": {
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Run Finance",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "Services/Finance.API",
+        "--no-launch-profile",
+        "--urls",
+        "http://localhost:5004"
+      ],
+      "options": {
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Run Reporting",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "Services/Reporting.API",
+        "--no-launch-profile",
+        "--urls",
+        "http://localhost:5005"
+      ],
+      "options": {
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Run Communication",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "Services/Communication.API",
+        "--no-launch-profile",
+        "--urls",
+        "http://localhost:5006"
+      ],
+      "options": {
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Run all APIs",
+      "dependsOn": [
+        "Run Identity",
+        "Run Delivery",
+        "Run Dispatch",
+        "Run Finance",
+        "Run Reporting",
+        "Run Communication"
+      ],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
+    }
+  ]
+}
